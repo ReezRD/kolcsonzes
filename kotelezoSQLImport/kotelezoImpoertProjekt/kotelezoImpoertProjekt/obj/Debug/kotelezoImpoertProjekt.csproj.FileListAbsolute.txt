@@ -1,0 +1,7 @@
+C:\tanulók\Szoftverfejlesztő 2022 23\Pisák Dániel\Vizsgaval_kapcs\kotelezo\kotelezoSQLImport\kotelezoImpoertProjekt\kotelezoImpoertProjekt\bin\Debug\kotelezoImpoertProjekt.exe.config
+C:\tanulók\Szoftverfejlesztő 2022 23\Pisák Dániel\Vizsgaval_kapcs\kotelezo\kotelezoSQLImport\kotelezoImpoertProjekt\kotelezoImpoertProjekt\bin\Debug\kotelezoImpoertProjekt.exe
+C:\tanulók\Szoftverfejlesztő 2022 23\Pisák Dániel\Vizsgaval_kapcs\kotelezo\kotelezoSQLImport\kotelezoImpoertProjekt\kotelezoImpoertProjekt\bin\Debug\kotelezoImpoertProjekt.pdb
+C:\tanulók\Szoftverfejlesztő 2022 23\Pisák Dániel\Vizsgaval_kapcs\kotelezo\kotelezoSQLImport\kotelezoImpoertProjekt\kotelezoImpoertProjekt\obj\Debug\kotelezoImpoertProjekt.csprojAssemblyReference.cache
+C:\tanulók\Szoftverfejlesztő 2022 23\Pisák Dániel\Vizsgaval_kapcs\kotelezo\kotelezoSQLImport\kotelezoImpoertProjekt\kotelezoImpoertProjekt\obj\Debug\kotelezoImpoertProjekt.csproj.CoreCompileInputs.cache
+C:\tanulók\Szoftverfejlesztő 2022 23\Pisák Dániel\Vizsgaval_kapcs\kotelezo\kotelezoSQLImport\kotelezoImpoertProjekt\kotelezoImpoertProjekt\obj\Debug\kotelezoImpoertProjekt.exe
+C:\tanulók\Szoftverfejlesztő 2022 23\Pisák Dániel\Vizsgaval_kapcs\kotelezo\kotelezoSQLImport\kotelezoImpoertProjekt\kotelezoImpoertProjekt\obj\Debug\kotelezoImpoertProjekt.pdb
