@@ -638,8 +638,8 @@ app.get("/opus", (req, res) => {
 });
 
 //#region specimen
-app.get("/loaning", (req, res) => {
-  let sql = `SELECT * FROM loaning`;
+app.get("/specimen", (req, res) => {
+  let sql = `SELECT * FROM specimen`;
 
   pool.getConnection(function (error, connection) {
     if (error) {
@@ -648,7 +648,7 @@ app.get("/loaning", (req, res) => {
     }
     connection.query(sql, async function (error, results, fields) {
       if (error) {
-        message = "Loanings sql error";
+        message = "Specimen sql error";
         sendingGetError(res, message);
         return;
       }
