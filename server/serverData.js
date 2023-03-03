@@ -659,8 +659,8 @@ app.get("/specimen", (req, res) => {
 });
 
 //#region students
-app.get("/loaning", (req, res) => {
-  let sql = `SELECT * FROM loaning`;
+app.get("/student", (req, res) => {
+  let sql = `SELECT * FROM student`;
 
   pool.getConnection(function (error, connection) {
     if (error) {
@@ -669,7 +669,7 @@ app.get("/loaning", (req, res) => {
     }
     connection.query(sql, async function (error, results, fields) {
       if (error) {
-        message = "Loanings sql error";
+        message = "Students sql error";
         sendingGetError(res, message);
         return;
       }
