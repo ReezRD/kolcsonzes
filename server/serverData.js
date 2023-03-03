@@ -594,6 +594,29 @@ app.put("/trips/:id", (req, res) => {
 });
 //#endregion trips
 
+
+//lknwiufc
+app.get("/loaning", (req, res) => {
+  let sql = `SELECT * FROM loaning`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, async function (error, results, fields) {
+      if (error) {
+        message = "Loanings sql error";
+        sendingGetError(res, message);
+        return;
+      }
+      sendingGet(res, null, results);
+    });
+    connection.release();
+  });
+});
+
+
 function mySanitizeHtml(data) {
   return sanitizeHtml(data, {
     allowedTags: [],
