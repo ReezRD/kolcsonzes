@@ -595,7 +595,70 @@ app.put("/trips/:id", (req, res) => {
 //#endregion trips
 
 
-//lknwiufc
+//#region loaning
+app.get("/loaning", (req, res) => {
+  let sql = `SELECT * FROM loaning`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, async function (error, results, fields) {
+      if (error) {
+        message = "Loanings sql error";
+        sendingGetError(res, message);
+        return;
+      }
+      sendingGet(res, null, results);
+    });
+    connection.release();
+  });
+});
+
+//#region opus
+app.get("/opus", (req, res) => {
+  let sql = `SELECT * FROM opus`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, async function (error, results, fields) {
+      if (error) {
+        message = "Opus sql error";
+        sendingGetError(res, message);
+        return;
+      }
+      sendingGet(res, null, results);
+    });
+    connection.release();
+  });
+});
+
+//#region specimen
+app.get("/loaning", (req, res) => {
+  let sql = `SELECT * FROM loaning`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, async function (error, results, fields) {
+      if (error) {
+        message = "Loanings sql error";
+        sendingGetError(res, message);
+        return;
+      }
+      sendingGet(res, null, results);
+    });
+    connection.release();
+  });
+});
+
+//#region students
 app.get("/loaning", (req, res) => {
   let sql = `SELECT * FROM loaning`;
 
