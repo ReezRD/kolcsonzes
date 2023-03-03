@@ -595,7 +595,32 @@ app.put("/trips/:id", (req, res) => {
 //#endregion trips
 
 
-//#region loaning
+//#region loaning ---
+//A függvény egy promisszal tér vissza
+function getSpecimen(res, specimenId) {
+  return new Promise((resolve, reject) => {
+    let sql = `
+    SELECT id, opusid, price, acquisition from specimen
+    WHERE id = ?`;
+
+    pool.getConnection(function (error, connection) {
+      if (error) {
+        sendingGetError(res, "Server connecting error!");
+        return;
+      }
+      connection.query(sql, [specimenId], async function (error, results, fields) {
+        if (error) {
+          const message = "Specimen sql error";
+          sendingGetError(res, message);
+        }
+        //Az await miatt a car.trips a results-ot kapja értékül
+        resolve(results);
+      });
+      connection.release();
+    });
+  });
+}
+//Csak a loaning tábla
 app.get("/loaning", (req, res) => {
   let sql = `SELECT * FROM loaning`;
 
@@ -616,7 +641,34 @@ app.get("/loaning", (req, res) => {
   });
 });
 
-//#region opus
+//loaning a specimen-eivel
+app.get("/loaningWithSpecimen", (req, res) => {
+  let sql = `SELECT * FROM loaning`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, async function (error, results, fields) {
+      if (error) {
+        message = "Loaning sql error";
+        sendingGetError(res, message);
+        return;
+      }
+
+      //Végigmegyünk a kocsikon, és berakjuk a trips-eket
+      for (const loaning of results) {
+        //A promise a results-ot ada vissza
+        loaning.specimenId = await getSpecimen(res, loaning.specimenId);
+      }
+      sendingGet(res, null, results);
+    });
+    connection.release();
+  });
+});
+
+//#region opus ---
 app.get("/opus", (req, res) => {
   let sql = `SELECT * FROM opus`;
 
@@ -637,7 +689,7 @@ app.get("/opus", (req, res) => {
   });
 });
 
-//#region specimen
+//#region specimen ---
 app.get("/specimen", (req, res) => {
   let sql = `SELECT * FROM specimen`;
 
@@ -658,7 +710,7 @@ app.get("/specimen", (req, res) => {
   });
 });
 
-//#region students
+//#region students ---
 app.get("/student", (req, res) => {
   let sql = `SELECT * FROM student`;
 
