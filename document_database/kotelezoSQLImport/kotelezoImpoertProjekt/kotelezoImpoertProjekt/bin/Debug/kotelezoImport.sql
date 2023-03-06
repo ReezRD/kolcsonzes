@@ -13808,4 +13808,4 @@ SELECT * FROM specimen;
 SELECT * FROM student;
 
 select * from loaning l
-  inner join specimen s on s.id = l.specimentid;
+  inner join specimen s on s.sId = l.specimentid;
