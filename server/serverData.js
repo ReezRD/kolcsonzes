@@ -671,7 +671,7 @@ app.get("/loaningWithSpecimen", (req, res) => {
 //Loaning és Speciment táblák inner join
 app.get("/loaningSpecimen", (req, res) => {
   let sql = `select * from loaning l
-  inner join specimen s on s.id = l.specimentid`;
+  inner join specimen s on s.sId = l.specimentid`;
 
   pool.getConnection(function (error, connection) {
     if (error) {

@@ -13806,3 +13806,6 @@ SELECT * FROM loaning;
 SELECT * FROM opus;
 SELECT * FROM specimen;
 SELECT * FROM student;
+
+select * from loaning l
+  inner join specimen s on s.id = l.specimentid;
