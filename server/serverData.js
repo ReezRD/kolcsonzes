@@ -690,6 +690,35 @@ app.get("/loaningSpecimen", (req, res) => {
   });
 });
 
+//Egy loaning rekord
+app.get("/loaning/:id", (req, res) => {
+  const id = req.params.id;
+  let sql = `
+    SELECT * FROM loaning
+    WHERE id = ?`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, [id], async function (error, results, fields) {
+      if (error) {
+        const message = "Loaning sql error";
+        sendingGetError(res, message);
+        return;
+      }
+      if (results.length == 0) {
+        const message = `Not found id: ${id}`;
+        sendingGetError(res, message);
+        return;
+      }
+      sendingGetById(res, null, results[0], id);
+    });
+    connection.release();
+  });
+});
+
 //#region opus ---
 app.get("/opus", (req, res) => {
   let sql = `SELECT * FROM opus`;

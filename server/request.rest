@@ -186,6 +186,8 @@ get http://localhost:3000/loaningWithSpecimen
 ### get loaningSpecimen (inner join)
 get https://localhost:3000/loaningSpecimen
 
+### get loaning by id (csak a loaning tábla)
+get http://localhost:3000/loaning/6
 
 
 
