@@ -668,6 +668,28 @@ app.get("/loaningWithSpecimen", (req, res) => {
   });
 });
 
+//Loaning és Speciment táblák inner join
+app.get("/loaningSpecimen", (req, res) => {
+  let sql = `select * from loaning l
+  inner join specimen s on s.id = l.specimentid`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, async function (error, results, fields) {
+      if (error) {
+        message = "Loaning sql error";
+        sendingGetError(res, message);
+        return;
+      }
+      sendingGet(res, null, results);
+    });
+    connection.release();
+  });
+});
+
 //#region opus ---
 app.get("/opus", (req, res) => {
   let sql = `SELECT * FROM opus`;
