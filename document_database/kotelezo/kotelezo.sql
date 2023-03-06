@@ -61,3 +61,8 @@ CREATE TABLE kotelezo.users (
 ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
+
+# get loaningSpecimen (inner join)
+select * from loaning l
+  inner join specimen s on s.sId = l.id;
+

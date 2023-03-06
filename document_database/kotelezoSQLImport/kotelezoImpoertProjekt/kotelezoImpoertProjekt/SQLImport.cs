@@ -112,7 +112,7 @@ namespace kotelezoImpoertProjekt
             List<string> flines = new List<string>();
 
             string text = Environment.NewLine + "# Specimens" + Environment.NewLine;
-            text += "INSERT INTO specimen (id, opusid, price, acquisition) VALUES" + Environment.NewLine;
+            text += "INSERT INTO specimen (sId, opusid, price, acquisition) VALUES" + Environment.NewLine;
 
             foreach (var specimen in specimentList)
             {

@@ -597,18 +597,18 @@ app.put("/trips/:id", (req, res) => {
 
 //#region loaning ---
 //A függvény egy promisszal tér vissza
-function getSpecimen(res, specimenId) {
+function getSpecimen(res, specimentId) {
   return new Promise((resolve, reject) => {
     let sql = `
-    SELECT id, opusid, price, acquisition from specimen
-    WHERE id = ?`;
+    SELECT sId, opusid, price, acquisition from specimen
+    WHERE sId = ?`;
 
     pool.getConnection(function (error, connection) {
       if (error) {
         sendingGetError(res, "Server connecting error!");
         return;
       }
-      connection.query(sql, [specimenId], async function (error, results, fields) {
+      connection.query(sql, [specimentId], async function (error, results, fields) {
         if (error) {
           const message = "Specimen sql error";
           sendingGetError(res, message);
@@ -660,7 +660,7 @@ app.get("/loaningWithSpecimen", (req, res) => {
       //Végigmegyünk a kocsikon, és berakjuk a trips-eket
       for (const loaning of results) {
         //A promise a results-ot ada vissza
-        loaning.specimenId = await getSpecimen(res, loaning.specimenId);
+        loaning.specimentId = await getSpecimen(res, loaning.specimentId);
       }
       sendingGet(res, null, results);
     });

@@ -185,3 +185,31 @@ get http://localhost:3000/loaningWithSpecimen
 //HIBÁS
 ### get loaningSpecimen (inner join)
 get https://localhost:3000/loaningSpecimen
+
+
+
+
+
+
+
+
+### get opus
+get http://localhost:3000/opus
+
+
+
+
+
+
+
+### get specimen
+get http://localhost:3000/specimen
+
+
+
+
+
+
+
+### get students
+get http://localhost:3000/student
