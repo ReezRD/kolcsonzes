@@ -178,3 +178,6 @@ Content-Type: application/json
 
 ### get loaning
 get http://localhost:3000/loaning
+
+### get loaning with specimen (nosql)
+get http://localhost:3000/loaningWithSpecimen
